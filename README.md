@@ -1,6 +1,6 @@
 # NetNewsWire 简体中文版
 
-基于上游 [NetNewsWire](https://github.com/Ranchero-Software/NetNewsWire) 的 macOS 自用汉化版本，不含 AI 功能。分支 `zh-hans` 长期跟随上游更新。
+基于上游 [NetNewsWire](https://github.com/Ranchero-Software/NetNewsWire) 的 macOS 自用汉化版本。分支 `zh-hans` 长期跟随上游更新。
 
 ## 内容
 

@@ -40,6 +40,14 @@ jobs:
           security import "$RUNNER_TEMP/signing.p12" -k "$keychain" -P "$SIGNING_P12_PASSWORD" -T /usr/bin/codesign
           security set-key-partition-list -S apple-tool:,apple: -s -k "$keychain_password" "$keychain" > /dev/null
           rm "$RUNNER_TEMP/signing.p12"
+          # codesign only uses identities from keychains in the search list, and only trusted ones.
+          security list-keychains -d user -s "$keychain" $(security list-keychains -d user | tr -d '"')
+          security find-certificate -c "NetNewsWire zh-Hans Signing" -p "$keychain" > "$RUNNER_TEMP/signing.pem"
+          sudo security add-trusted-cert -d -r trustRoot -p codeSign -k /Library/Keychains/System.keychain "$RUNNER_TEMP/signing.pem"
+          security find-identity -v -p codesigning "$keychain"
+          # Fail here rather than after the build if signing doesn't work.
+          cp /usr/bin/true "$RUNNER_TEMP/signing-check"
+          codesign --force --keychain "$keychain" --sign "NetNewsWire zh-Hans Signing" "$RUNNER_TEMP/signing-check"
           echo "SIGN_KEYCHAIN=$keychain" >> "$GITHUB_ENV"
 
       - name: Build and package

@@ -197,6 +197,9 @@ public enum FetchType {
 		Set(flattenedFeeds().map({ $0.url }))
 	}
 
+	/// Username can be shown when a keychain write failed or credentials need re-entry.
+	public var credentialUsername: String? { username }
+
 	var username: String? {
 		get {
 			settings.username

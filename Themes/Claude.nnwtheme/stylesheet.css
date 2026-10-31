@@ -1,0 +1,525 @@
+/* Claude — warm ivory and slate, serif reading text, terracotta accents.
+   Tuned for mixed Chinese and English: Latin text in a serif, Chinese in PingFang. */
+
+/* The system serif falls back to Songti for Chinese on its own, ignoring the rest of
+   the font list. This face claims CJK characters first so they render in PingFang. */
+@font-face {
+	font-family: "Claude CJK";
+	src: local("PingFangSC-Regular"), local("PingFang SC");
+	font-weight: 100 450;
+	unicode-range: U+2E80-2FFF, U+3000-303F, U+3040-30FF, U+3100-312F, U+3190-31FF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
+}
+
+@font-face {
+	font-family: "Claude CJK";
+	src: local("PingFangSC-Medium");
+	font-weight: 451 550;
+	unicode-range: U+2E80-2FFF, U+3000-303F, U+3040-30FF, U+3100-312F, U+3190-31FF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
+}
+
+@font-face {
+	font-family: "Claude CJK";
+	src: local("PingFangSC-Semibold");
+	font-weight: 551 900;
+	unicode-range: U+2E80-2FFF, U+3000-303F, U+3040-30FF, U+3100-312F, U+3190-31FF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
+}
+
+:root {
+	--bg: #faf9f5;
+	--surface: #f0eee6;
+	--text: #1f1e1d;
+	--text-secondary: #73726c;
+	--border: #e5e2d9;
+	--accent: #c96442;
+	--accent-soft: rgba(201, 100, 66, 0.35);
+	--code-text: #3d3929;
+	--selection: rgba(217, 119, 87, 0.22);
+
+	--serif: "Claude CJK", ui-serif, "New York", Georgia, "PingFang SC", "Hiragino Sans GB", serif;
+	--sans: -apple-system, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Helvetica Neue", sans-serif;
+	--mono: "SF Mono", Menlo, "PingFang SC", monospace;
+
+	/* Names the app's shared rules read. */
+	--header-table-border-color: var(--border);
+	--header-color: var(--text-secondary);
+	--body-code-color: var(--code-text);
+	--system-message-color: var(--text-secondary);
+	--feedlink-color: var(--text-secondary);
+	--article-title-color: var(--text);
+	--article-date-color: var(--text-secondary);
+	--table-cell-border-color: var(--border);
+	--primary-accent-color: var(--border);
+	--secondary-accent-color: var(--accent);
+	--block-quote-border-color: var(--accent-soft);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #262624;
+		--surface: #30302e;
+		--text: #f0eee6;
+		--text-secondary: #a6a39a;
+		--border: #3e3e38;
+		--accent: #e08a6d;
+		--accent-soft: rgba(224, 138, 109, 0.4);
+		--code-text: #e5e2d9;
+		--selection: rgba(224, 138, 109, 0.3);
+	}
+}
+
+html {
+	background-color: var(--bg);
+}
+
+body {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 42em;
+	background-color: var(--bg);
+	color: var(--text);
+	font-family: var(--serif);
+	word-wrap: break-word;
+	-webkit-font-smoothing: antialiased;
+	/* A thin space between Chinese and Latin letters or digits. */
+	text-autospace: normal;
+	text-spacing-trim: normal;
+	line-break: strict;
+}
+
+::selection {
+	background: var(--selection);
+}
+
+a {
+	color: var(--accent);
+	text-decoration: underline;
+	text-decoration-color: var(--accent-soft);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.2em;
+}
+
+a:hover {
+	text-decoration-color: var(--accent);
+}
+
+/* Header: feed name and author, quiet like Claude's interface chrome */
+
+body > header {
+	padding-bottom: 0.6rem;
+	border-bottom: 1px solid var(--border);
+}
+
+.headerTable {
+	width: 100%;
+	border-spacing: 0;
+}
+
+.headerTable td {
+	padding: 0.15em 0;
+	border: none;
+	font-family: var(--sans);
+	font-size: 0.8rem;
+	line-height: 1.5;
+	color: var(--text-secondary);
+}
+
+.headerContainer a,
+.headerContainer a:visited {
+	color: var(--text-secondary);
+	text-decoration: none;
+}
+
+.headerContainer a:hover {
+	color: var(--text);
+}
+
+.feedlink {
+	font-weight: 600;
+}
+
+.rightAlign {
+	text-align: end;
+}
+
+.leftAlign {
+	text-align: start;
+}
+
+.avatar {
+	width: 33%;
+}
+
+.avatar img,
+#nnwImageIcon {
+	width: 32px;
+	height: 32px;
+	border-radius: 8px;
+}
+
+/* Title and dateline */
+
+.articleTitle h1 {
+	margin: 1.3em 0 0.35em;
+	font-family: var(--serif);
+	font-size: 1.85em;
+	font-weight: 600;
+	line-height: 1.5;
+	letter-spacing: -0.01em;
+}
+
+.articleTitle a,
+.articleTitle a:visited {
+	color: var(--text);
+	text-decoration: none;
+}
+
+.articleDateline,
+.articleDatelineTitle,
+.externalLink {
+	margin-bottom: 4px;
+	font-family: var(--sans);
+	font-size: 0.8rem;
+	color: var(--text-secondary);
+}
+
+.articleDateline a,
+.articleDatelineTitle a,
+.externalLink a {
+	color: var(--text-secondary);
+	text-decoration: none;
+}
+
+.articleDatelineTitle {
+	font-weight: 600;
+}
+
+.externalLink {
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Body */
+
+.articleBody {
+	margin-top: 1.6em;
+	line-height: 1.8;
+}
+
+.articleBody p {
+	margin: 0 0 1.1em;
+}
+
+.articleBody h1,
+.articleBody h2,
+.articleBody h3,
+.articleBody h4,
+.articleBody h5,
+.articleBody h6 {
+	margin: 1.6em 0 0.6em;
+	font-family: var(--serif);
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+.articleBody h1 { font-size: 1.45em; }
+.articleBody h2 { font-size: 1.3em; }
+.articleBody h3 { font-size: 1.15em; }
+.articleBody h4,
+.articleBody h5,
+.articleBody h6 { font-size: 1em; }
+
+ul,
+ol {
+	padding-inline-start: 1.5em;
+}
+
+li {
+	margin: 0.3em 0;
+}
+
+li::marker {
+	color: var(--text-secondary);
+}
+
+blockquote {
+	margin: 1.2em 0;
+	padding: 0.1em 0 0.1em 1em;
+	border-inline-start: 3px solid var(--block-quote-border-color);
+	color: var(--text-secondary);
+}
+
+hr {
+	margin: 2em 0;
+	border: none;
+	border-top: 1px solid var(--border);
+}
+
+/* Code: a warm surface, like Claude's code blocks */
+
+code,
+pre {
+	font-family: var(--mono);
+	font-size: 0.85em;
+	color: var(--code-text);
+	-webkit-hyphens: none;
+}
+
+:not(pre) > code {
+	padding: 0.15em 0.35em;
+	border-radius: 5px;
+	background: var(--surface);
+}
+
+pre {
+	max-width: 100%;
+	margin: 1.2em 0;
+	padding: 14px 16px;
+	overflow: auto;
+	overflow-y: hidden;
+	border: 1px solid var(--border);
+	border-radius: 10px;
+	background: var(--surface);
+	line-height: 1.55;
+	word-wrap: normal;
+	word-break: normal;
+}
+
+pre code {
+	padding: 0;
+	background: none;
+	font-size: inherit;
+}
+
+/* Tables */
+
+.nnw-overflow {
+	overflow-x: auto;
+}
+
+.nnw-overflow table {
+	margin: 1.2em 0;
+	border-spacing: 0;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	font-family: var(--sans);
+	font-size: 0.9em;
+}
+
+.nnw-overflow table table {
+	margin: 0;
+	border: none;
+}
+
+.nnw-overflow th {
+	background: var(--surface);
+	font-weight: 600;
+	text-align: start;
+}
+
+.nnw-overflow td,
+.nnw-overflow th {
+	padding: 6px 10px;
+	border: 1px solid var(--border);
+	border-top: none;
+	border-left: none;
+	word-break: normal;
+	-webkit-hyphens: none;
+}
+
+.nnw-overflow tr :matches(td, th):last-child {
+	border-right: none;
+}
+
+.nnw-overflow :matches(thead, tbody, tfoot):last-child > tr:last-child :matches(td, th) {
+	border-bottom: none;
+}
+
+.nnw-overflow td pre {
+	border: none;
+	padding: 0;
+}
+
+.nnw-overflow table[border="0"] {
+	border-width: 0;
+}
+
+/* Media */
+
+img,
+figure,
+video,
+div,
+object {
+	max-width: 100%;
+	height: auto !important;
+	margin: 0 auto;
+}
+
+.articleBody img {
+	border-radius: 8px;
+}
+
+iframe {
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+iframe.nnw-constrained {
+	max-height: 50vw;
+}
+
+figure {
+	margin: 1.4em auto;
+}
+
+figcaption {
+	margin-top: 0.5em;
+	font-family: var(--sans);
+	font-size: 0.8rem;
+	line-height: 1.5;
+	color: var(--text-secondary);
+	text-align: center;
+}
+
+.iframeWrap {
+	position: relative;
+	display: block;
+	padding-top: 56.25%;
+}
+
+.iframeWrap iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100% !important;
+	width: 100% !important;
+}
+
+sup {
+	vertical-align: top;
+	position: relative;
+	bottom: 0.2rem;
+}
+
+sub {
+	vertical-align: bottom;
+	position: relative;
+	top: 0.2rem;
+}
+
+.systemMessage {
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translateX(-55%) translateY(-50%);
+	font-family: var(--sans);
+	color: var(--system-message-color);
+	-webkit-user-select: none;
+	cursor: default;
+}
+
+/* Footnotes */
+
+.newsfoot-footnote-popover {
+	background: var(--border);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+	color: var(--text);
+	padding: 1px;
+}
+
+.newsfoot-footnote-popover-arrow {
+	background: var(--surface);
+	border: 1px solid var(--border);
+}
+
+.newsfoot-footnote-popover-inner {
+	background: var(--surface);
+}
+
+body a.footnote,
+body a.footnote:visited,
+.newsfoot-footnote-popover + a.footnote:hover {
+	background: var(--text-secondary);
+	color: var(--bg);
+	transition: background-color 200ms ease-out;
+}
+
+a.footnote:hover,
+.newsfoot-footnote-popover + a.footnote {
+	background: var(--accent);
+	transition: background-color 200ms ease-out;
+}
+
+/* Feed specific */
+
+.feedbin--article-wrap {
+	border-top: 1px solid var(--border);
+}
+
+.twitterAvatar {
+	vertical-align: middle;
+	border-radius: 50%;
+	height: 1.7em;
+	width: 1.7em;
+}
+
+.twitterUsername {
+	line-height: 1.2;
+	margin-left: 4px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.twitterScreenName,
+.twitterTimestamp {
+	font-size: 66%;
+}
+
+/* iOS */
+@supports (-webkit-touch-callout: none) {
+	body {
+		margin-top: 3px;
+		margin-bottom: 24px;
+		padding-left: 20px;
+		padding-right: 20px;
+		word-break: break-word;
+		-webkit-text-size-adjust: none;
+		font-size: [[font-size]]px;
+	}
+
+	.articleTitle h1 {
+		font-size: 1.5em;
+	}
+}
+
+/* macOS */
+@supports not (-webkit-touch-callout: none) {
+	body {
+		margin-top: 20px;
+		margin-bottom: 64px;
+		padding-left: 48px;
+		padding-right: 48px;
+	}
+
+	.smallText {
+		font-size: 15px;
+	}
+
+	.mediumText {
+		font-size: 17px;
+	}
+
+	.largeText {
+		font-size: 19px;
+	}
+
+	.xlargeText {
+		font-size: 21px;
+	}
+
+	.xxlargeText {
+		font-size: 23px;
+	}
+}

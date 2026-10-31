@@ -183,15 +183,20 @@ let appName = "NetNewsWire"
 			UserDefaults.standard.set(releaseBuildsURL, forKey: "SUFeedURL")
 		}
 
-		// Initialize Sparkle...
-		let hostBundle = Bundle.main
-		let updateDriver = SPUStandardUserDriver(hostBundle: hostBundle, delegate: self)
-		softwareUpdater = SPUUpdater(hostBundle: hostBundle, applicationBundle: hostBundle, userDriver: updateDriver, delegate: self)
+		// Local custom builds must not be replaced by an upstream release.
+		if Bundle.main.object(forInfoDictionaryKey: "NNWCustomBuild") as? Bool == true {
+			checkForUpdatesMenuItem.isHidden = true
+		} else {
+			// Initialize Sparkle...
+			let hostBundle = Bundle.main
+			let updateDriver = SPUStandardUserDriver(hostBundle: hostBundle, delegate: self)
+			softwareUpdater = SPUUpdater(hostBundle: hostBundle, applicationBundle: hostBundle, userDriver: updateDriver, delegate: self)
 
-		do {
-			try softwareUpdater?.start()
-		} catch {
-			Self.logger.error("Failed to start software updater with error: \(error.localizedDescription)")
+			do {
+				try softwareUpdater?.start()
+			} catch {
+				Self.logger.error("Failed to start software updater with error: \(error.localizedDescription)")
+			}
 		}
 
 		AppDefaults.registerDefaults()
@@ -650,6 +655,7 @@ let appName = "NetNewsWire"
 			keyboardShortcutsWindowController?.displayContents(of: htmlFile)
 
 			if let window = keyboardShortcutsWindowController?.window {
+				window.title = NSLocalizedString("Keyboard Shortcuts", comment: "window title")
 				let point = NSPoint(x: 128, y: 64)
 				let size = NSSize(width: 620, height: 1100)
 				let minSize = NSSize(width: 400, height: 400)

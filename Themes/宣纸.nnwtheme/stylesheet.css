@@ -1,0 +1,487 @@
+/* 宣纸 — a printed-book page: rice-paper tones, Songti for Chinese, Charter for Latin,
+   vermilion links, Kaiti quotations, first-line indents. */
+
+:root {
+	--bg: #f4eedf;
+	--surface: #ebe3cf;
+	--text: #2b2622;
+	--text-secondary: #7a6e5f;
+	--border: #d9ceb6;
+	--accent: #b03a2e;
+	--accent-soft: rgba(176, 58, 46, 0.35);
+	--code-text: #4a3f33;
+	--selection: rgba(176, 58, 46, 0.18);
+
+	--serif: Charter, "Iowan Old Style", "Songti SC", "STSong", serif;
+	--kai: Charter, "Kaiti SC", "STKaiti", "Songti SC", serif;
+	--sans: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+	--mono: "SF Mono", Menlo, "Songti SC", monospace;
+
+	--header-table-border-color: var(--border);
+	--header-color: var(--text-secondary);
+	--body-code-color: var(--code-text);
+	--system-message-color: var(--text-secondary);
+	--feedlink-color: var(--text-secondary);
+	--article-title-color: var(--text);
+	--article-date-color: var(--text-secondary);
+	--table-cell-border-color: var(--border);
+	--primary-accent-color: var(--border);
+	--secondary-accent-color: var(--accent);
+	--block-quote-border-color: var(--accent-soft);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #211d17;
+		--surface: #2b261e;
+		--text: #e6dcc6;
+		--text-secondary: #a39782;
+		--border: #3d352a;
+		--accent: #d9695a;
+		--accent-soft: rgba(217, 105, 90, 0.4);
+		--code-text: #dcd0b6;
+		--selection: rgba(217, 105, 90, 0.28);
+	}
+}
+
+html {
+	background-color: var(--bg);
+}
+
+body {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 38em;
+	background-color: var(--bg);
+	color: var(--text);
+	font-family: var(--serif);
+	word-wrap: break-word;
+	-webkit-font-smoothing: antialiased;
+	text-autospace: normal;
+	text-spacing-trim: normal;
+	line-break: strict;
+}
+
+::selection {
+	background: var(--selection);
+}
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+	border-bottom: 1px solid var(--accent-soft);
+}
+
+a:hover {
+	border-bottom-color: var(--accent);
+}
+
+/* Header */
+
+body > header {
+	padding-bottom: 0.6rem;
+	border-bottom: 1px solid var(--border);
+}
+
+.headerTable {
+	width: 100%;
+	border-spacing: 0;
+}
+
+.headerTable td {
+	padding: 0.15em 0;
+	border: none;
+	font-family: var(--sans);
+	font-size: 0.78rem;
+	line-height: 1.5;
+	color: var(--text-secondary);
+}
+
+.headerContainer a,
+.headerContainer a:visited {
+	color: var(--text-secondary);
+	border-bottom: none;
+}
+
+.feedlink {
+	font-weight: 600;
+}
+
+.rightAlign {
+	text-align: end;
+}
+
+.leftAlign {
+	text-align: start;
+}
+
+.avatar {
+	width: 33%;
+}
+
+.avatar img,
+#nnwImageIcon {
+	width: 32px;
+	height: 32px;
+	border-radius: 4px;
+	filter: sepia(0.25);
+}
+
+/* Title: centered, like a chapter opening */
+
+.articleTitle h1 {
+	margin: 1.6em 0 0.5em;
+	font-family: var(--serif);
+	font-size: 1.8em;
+	font-weight: 700;
+	line-height: 1.6;
+	text-align: center;
+	letter-spacing: 0.02em;
+}
+
+.articleTitle a,
+.articleTitle a:visited {
+	color: var(--text);
+	border-bottom: none;
+}
+
+.articleDateline,
+.articleDatelineTitle,
+.externalLink {
+	margin-bottom: 4px;
+	font-family: var(--sans);
+	font-size: 0.78rem;
+	color: var(--text-secondary);
+	text-align: center;
+	letter-spacing: 0.05em;
+}
+
+.articleDateline a,
+.articleDatelineTitle a,
+.externalLink a {
+	color: var(--text-secondary);
+	border-bottom: none;
+}
+
+.externalLink {
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Body: first-line indent of two characters. Left-aligned: justification opens wide gaps in English lines. */
+
+.articleBody {
+	margin-top: 2em;
+	line-height: 1.95;
+}
+
+.articleBody p {
+	margin: 0 0 0.9em;
+	text-indent: 2em;
+}
+
+.articleBody :matches(li, blockquote, figure, td, th, figcaption) p,
+.articleBody p:has(img, picture, video, iframe, svg) {
+	text-indent: 0;
+}
+
+.articleBody h1,
+.articleBody h2,
+.articleBody h3,
+.articleBody h4,
+.articleBody h5,
+.articleBody h6 {
+	margin: 1.8em 0 0.8em;
+	font-family: var(--serif);
+	font-weight: 700;
+	line-height: 1.5;
+	text-align: start;
+}
+
+.articleBody h1 { font-size: 1.4em; }
+.articleBody h2 { font-size: 1.25em; }
+.articleBody h3 { font-size: 1.1em; }
+.articleBody h4,
+.articleBody h5,
+.articleBody h6 { font-size: 1em; }
+
+ul,
+ol {
+	padding-inline-start: 2em;
+}
+
+li {
+	margin: 0.3em 0;
+}
+
+li::marker {
+	color: var(--accent);
+}
+
+blockquote {
+	margin: 1.4em 2em;
+	padding: 0;
+	border: none;
+	font-family: var(--kai);
+	letter-spacing: -0.03em;
+	color: var(--text-secondary);
+}
+
+hr {
+	width: 30%;
+	margin: 2.4em auto;
+	border: none;
+	border-top: 1px solid var(--border);
+}
+
+/* Code */
+
+code,
+pre {
+	font-family: var(--mono);
+	font-size: 0.85em;
+	color: var(--code-text);
+	-webkit-hyphens: none;
+}
+
+:not(pre) > code {
+	padding: 0.1em 0.3em;
+	border-radius: 3px;
+	background: var(--surface);
+}
+
+pre {
+	max-width: 100%;
+	margin: 1.2em 0;
+	padding: 12px 16px;
+	overflow: auto;
+	overflow-y: hidden;
+	border-left: 3px solid var(--border);
+	background: var(--surface);
+	line-height: 1.55;
+	text-align: start;
+	word-wrap: normal;
+	word-break: normal;
+}
+
+pre code {
+	padding: 0;
+	background: none;
+	font-size: inherit;
+}
+
+/* Tables */
+
+.nnw-overflow {
+	overflow-x: auto;
+}
+
+.nnw-overflow table {
+	margin: 1.2em auto;
+	border-spacing: 0;
+	border-top: 2px solid var(--text-secondary);
+	border-bottom: 2px solid var(--text-secondary);
+	font-size: 0.92em;
+	text-align: start;
+}
+
+.nnw-overflow table table {
+	margin: 0;
+	border: none;
+}
+
+.nnw-overflow th {
+	font-weight: 700;
+	border-bottom: 1px solid var(--text-secondary);
+}
+
+.nnw-overflow td,
+.nnw-overflow th {
+	padding: 5px 12px;
+	word-break: normal;
+	-webkit-hyphens: none;
+}
+
+.nnw-overflow td pre {
+	border: none;
+	padding: 0;
+}
+
+/* Media */
+
+img,
+figure,
+video,
+div,
+object {
+	max-width: 100%;
+	height: auto !important;
+	margin: 0 auto;
+}
+
+iframe {
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+iframe.nnw-constrained {
+	max-height: 50vw;
+}
+
+figure {
+	margin: 1.6em auto;
+}
+
+figcaption {
+	margin-top: 0.5em;
+	font-family: var(--kai);
+	letter-spacing: -0.03em;
+	font-size: 0.85em;
+	line-height: 1.6;
+	color: var(--text-secondary);
+	text-align: center;
+}
+
+.iframeWrap {
+	position: relative;
+	display: block;
+	padding-top: 56.25%;
+}
+
+.iframeWrap iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100% !important;
+	width: 100% !important;
+}
+
+sup {
+	vertical-align: top;
+	position: relative;
+	bottom: 0.2rem;
+}
+
+sub {
+	vertical-align: bottom;
+	position: relative;
+	top: 0.2rem;
+}
+
+.systemMessage {
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translateX(-55%) translateY(-50%);
+	font-family: var(--sans);
+	color: var(--system-message-color);
+	-webkit-user-select: none;
+	cursor: default;
+}
+
+/* Footnotes */
+
+.newsfoot-footnote-popover {
+	background: var(--border);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+	color: var(--text);
+	padding: 1px;
+}
+
+.newsfoot-footnote-popover-arrow {
+	background: var(--surface);
+	border: 1px solid var(--border);
+}
+
+.newsfoot-footnote-popover-inner {
+	background: var(--surface);
+}
+
+body a.footnote,
+body a.footnote:visited,
+.newsfoot-footnote-popover + a.footnote:hover {
+	background: var(--text-secondary);
+	color: var(--bg);
+	border-bottom: none;
+	transition: background-color 200ms ease-out;
+}
+
+a.footnote:hover,
+.newsfoot-footnote-popover + a.footnote {
+	background: var(--accent);
+	transition: background-color 200ms ease-out;
+}
+
+/* Feed specific */
+
+.feedbin--article-wrap {
+	border-top: 1px solid var(--border);
+}
+
+.twitterAvatar {
+	vertical-align: middle;
+	border-radius: 50%;
+	height: 1.7em;
+	width: 1.7em;
+}
+
+.twitterUsername {
+	line-height: 1.2;
+	margin-left: 4px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.twitterScreenName,
+.twitterTimestamp {
+	font-size: 66%;
+}
+
+/* iOS */
+@supports (-webkit-touch-callout: none) {
+	body {
+		margin-top: 3px;
+		margin-bottom: 24px;
+		padding-left: 20px;
+		padding-right: 20px;
+		word-break: break-word;
+		-webkit-text-size-adjust: none;
+		font-size: [[font-size]]px;
+	}
+
+	.articleTitle h1 {
+		font-size: 1.5em;
+	}
+}
+
+/* macOS */
+@supports not (-webkit-touch-callout: none) {
+	body {
+		margin-top: 20px;
+		margin-bottom: 64px;
+		padding-left: 48px;
+		padding-right: 48px;
+	}
+
+	.smallText {
+		font-size: 15px;
+	}
+
+	.mediumText {
+		font-size: 17px;
+	}
+
+	.largeText {
+		font-size: 19px;
+	}
+
+	.xlargeText {
+		font-size: 21px;
+	}
+
+	.xxlargeText {
+		font-size: 23px;
+	}
+}

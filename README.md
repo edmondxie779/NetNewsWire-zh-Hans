@@ -1,3 +1,54 @@
+# NetNewsWire 简体中文版
+
+基于上游 [NetNewsWire](https://github.com/Ranchero-Software/NetNewsWire) 的 macOS 自用汉化版本，不含 AI 功能。分支 `zh-hans` 长期跟随上游更新。
+
+## 内容
+
+- **简体中文界面**：主菜单、侧栏、工具栏、设置、添加订阅、账户登录、OPML 导入导出、日志和统计窗口、快捷键说明等。跟随 macOS 的应用语言设置。
+- **三套阅读主题**：Claude（暖象牙白 / 暖炭灰，衬线正文）、宣纸（书页风格，宋体、段首缩进）、夜读（始终深色、低对比）。在「文章主题」菜单中选择。
+- **自建版适配**：独立的钥匙串命名空间（避免与官方版条目冲突）；关闭上游自动更新，避免被官方版本覆盖。
+
+## 构建与安装
+
+需要完整的 Xcode。
+
+**1. 创建签名证书（只需一次）**
+
+打开「钥匙串访问」，选择菜单「钥匙串访问 → 证书助理 → 创建证书…」：名称填 `NetNewsWire Local Signing`，身份类型选「自签名根证书」，证书类型选「代码签名」。
+
+有了固定签名，钥匙串里点过的「始终允许」在重新构建后依然有效。没有这个证书时，脚本会退回临时签名，每次重新构建后 macOS 都会再次询问钥匙串权限。
+
+**2. 构建并安装**
+
+```sh
+bash buildscripts/build-chinese-local.sh
+```
+
+脚本会编译、签名，并直接安装到 `/Applications/NetNewsWire 汉化版.app`。构建缓存在仓库上一级的 `build/` 里；如果移动过项目目录后构建失败，删掉 `build/` 重来即可。
+
+## 同步上游更新
+
+```sh
+git switch zh-hans
+git fetch upstream
+git merge upstream/main
+bash buildscripts/build-chinese-local.sh
+```
+
+合并时如有冲突，多半出现在 `*.xcstrings` 翻译文件或 `project.pbxproj`：保留上游的新内容，再补回 `zh-Hans` 译文。上游新增的界面文字在补译前会显示英文。详见 [汉化与构建说明](Technotes/ChineseLocalization.md)。
+
+## 数据与限制
+
+- 订阅数据位于 `~/Library/Application Support/NetNewsWire/`，和官方版是同一个目录，请不要同时运行官方版和本版本。
+- 阅读器视图（全文提取）等依赖上游私有服务密钥的功能不可用。
+- 本地签名、未公证，只适合在本机使用。
+
+Git 仓库保留上游完整历史和 MIT 许可证。`zh-hans` 是汉化分支，`main` 与上游保持一致。
+
+---
+
+以下为上游说明。
+
 <img src=Technotes/Images/icon_1024.png height=128 width=128 style="display: block; margin: auto;"> 
 
 # NetNewsWire

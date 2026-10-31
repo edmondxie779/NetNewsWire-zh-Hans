@@ -16,6 +16,12 @@
             "state" : "translated",
             "value" : "Fuentes"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "订阅"
+          }
         }
       }
     }

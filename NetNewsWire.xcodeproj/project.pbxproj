@@ -70,6 +70,9 @@
 		849182CC2FD32B1B005C3025 /* Sepia.nnwtheme in Resources */ = {isa = PBXBuildFile; fileRef = 849182BB2FD32B1B005C3015 /* Sepia.nnwtheme */; };
 		849182CC2FD32B1B005C3026 /* Tiqoe Dark.nnwtheme in Resources */ = {isa = PBXBuildFile; fileRef = 849182BB2FD32B1B005C3016 /* Tiqoe Dark.nnwtheme */; };
 		849182CC2FD32B1B005C3027 /* Verdana Revival.nnwtheme in Resources */ = {isa = PBXBuildFile; fileRef = 849182BB2FD32B1B005C3017 /* Verdana Revival.nnwtheme */; };
+		849182CC2FD32B1B005C3028 /* Claude.nnwtheme in Resources */ = {isa = PBXBuildFile; fileRef = 849182BB2FD32B1B005C3018 /* Claude.nnwtheme */; };
+		849182CC2FD32B1B005C3029 /* 宣纸.nnwtheme in Resources */ = {isa = PBXBuildFile; fileRef = 849182BB2FD32B1B005C3019 /* 宣纸.nnwtheme */; };
+		849182CC2FD32B1B005C302A /* 夜读.nnwtheme in Resources */ = {isa = PBXBuildFile; fileRef = 849182BB2FD32B1B005C301A /* 夜读.nnwtheme */; };
 		849182DD2FD32B1B005C3030 /* Appanoose.nnwtheme in Resources */ = {isa = PBXBuildFile; fileRef = 849182BB2FD32B1B005C3010 /* Appanoose.nnwtheme */; };
 		849182DD2FD32B1B005C3031 /* Biblioteca.nnwtheme in Resources */ = {isa = PBXBuildFile; fileRef = 849182BB2FD32B1B005C3011 /* Biblioteca.nnwtheme */; };
 		849182DD2FD32B1B005C3032 /* Hyperlegible.nnwtheme in Resources */ = {isa = PBXBuildFile; fileRef = 849182BB2FD32B1B005C3012 /* Hyperlegible.nnwtheme */; };
@@ -78,6 +81,9 @@
 		849182DD2FD32B1B005C3035 /* Sepia.nnwtheme in Resources */ = {isa = PBXBuildFile; fileRef = 849182BB2FD32B1B005C3015 /* Sepia.nnwtheme */; };
 		849182DD2FD32B1B005C3036 /* Tiqoe Dark.nnwtheme in Resources */ = {isa = PBXBuildFile; fileRef = 849182BB2FD32B1B005C3016 /* Tiqoe Dark.nnwtheme */; };
 		849182DD2FD32B1B005C3037 /* Verdana Revival.nnwtheme in Resources */ = {isa = PBXBuildFile; fileRef = 849182BB2FD32B1B005C3017 /* Verdana Revival.nnwtheme */; };
+		849182DD2FD32B1B005C3038 /* Claude.nnwtheme in Resources */ = {isa = PBXBuildFile; fileRef = 849182BB2FD32B1B005C3018 /* Claude.nnwtheme */; };
+		849182DD2FD32B1B005C3039 /* 宣纸.nnwtheme in Resources */ = {isa = PBXBuildFile; fileRef = 849182BB2FD32B1B005C3019 /* 宣纸.nnwtheme */; };
+		849182DD2FD32B1B005C303A /* 夜读.nnwtheme in Resources */ = {isa = PBXBuildFile; fileRef = 849182BB2FD32B1B005C301A /* 夜读.nnwtheme */; };
 		84EE3F122DB8A088009D3A8D /* RSTree in Frameworks */ = {isa = PBXBuildFile; productRef = 84EE3F112DB8A088009D3A8D /* RSTree */; };
 		84EE3F132DB8A088009D3A8D /* RSTree in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 84EE3F112DB8A088009D3A8D /* RSTree */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		84EE3F152DB8A0A0009D3A8D /* RSTree in Frameworks */ = {isa = PBXBuildFile; productRef = 84EE3F142DB8A0A0009D3A8D /* RSTree */; };
@@ -300,6 +306,9 @@
 		849182BB2FD32B1B005C3015 /* Sepia.nnwtheme */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sepia.nnwtheme; sourceTree = "<group>"; };
 		849182BB2FD32B1B005C3016 /* Tiqoe Dark.nnwtheme */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Tiqoe Dark.nnwtheme"; sourceTree = "<group>"; };
 		849182BB2FD32B1B005C3017 /* Verdana Revival.nnwtheme */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Verdana Revival.nnwtheme"; sourceTree = "<group>"; };
+		849182BB2FD32B1B005C3018 /* Claude.nnwtheme */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Claude.nnwtheme; sourceTree = "<group>"; };
+		849182BB2FD32B1B005C3019 /* 宣纸.nnwtheme */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "宣纸.nnwtheme"; sourceTree = "<group>"; };
+		849182BB2FD32B1B005C301A /* 夜读.nnwtheme */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "夜读.nnwtheme"; sourceTree = "<group>"; };
 		849C64601ED37A5D003D8FC0 /* NetNewsWire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetNewsWire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849C64711ED37A5D003D8FC0 /* NetNewsWireTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetNewsWireTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D2200922B0BC4B0019E085 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
@@ -584,6 +593,9 @@
 				849182BB2FD32B1B005C3015 /* Sepia.nnwtheme */,
 				849182BB2FD32B1B005C3016 /* Tiqoe Dark.nnwtheme */,
 				849182BB2FD32B1B005C3017 /* Verdana Revival.nnwtheme */,
+				849182BB2FD32B1B005C3018 /* Claude.nnwtheme */,
+				849182BB2FD32B1B005C3019 /* 宣纸.nnwtheme */,
+				849182BB2FD32B1B005C301A /* 夜读.nnwtheme */,
 			);
 			path = Themes;
 			sourceTree = "<group>";
@@ -925,6 +937,7 @@
 				en,
 				Base,
 				es,
+				"zh-Hans",
 			);
 			mainGroup = 849C64571ED37A5D003D8FC0;
 			packageReferences = (
@@ -997,6 +1010,9 @@
 				849182DD2FD32B1B005C3035 /* Sepia.nnwtheme in Resources */,
 				849182DD2FD32B1B005C3036 /* Tiqoe Dark.nnwtheme in Resources */,
 				849182DD2FD32B1B005C3037 /* Verdana Revival.nnwtheme in Resources */,
+				849182DD2FD32B1B005C3038 /* Claude.nnwtheme in Resources */,
+				849182DD2FD32B1B005C3039 /* 宣纸.nnwtheme in Resources */,
+				849182DD2FD32B1B005C303A /* 夜读.nnwtheme in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1012,6 +1028,9 @@
 				849182CC2FD32B1B005C3025 /* Sepia.nnwtheme in Resources */,
 				849182CC2FD32B1B005C3026 /* Tiqoe Dark.nnwtheme in Resources */,
 				849182CC2FD32B1B005C3027 /* Verdana Revival.nnwtheme in Resources */,
+				849182CC2FD32B1B005C3028 /* Claude.nnwtheme in Resources */,
+				849182CC2FD32B1B005C3029 /* 宣纸.nnwtheme in Resources */,
+				849182CC2FD32B1B005C302A /* 夜读.nnwtheme in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

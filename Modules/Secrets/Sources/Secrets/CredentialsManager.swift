@@ -19,6 +19,7 @@ public struct CredentialsManager {
 	private static let logger = Logger(subsystem: Logger.nnwSubsystem, category: "CredentialsManager")
 
 	private static let keychainGroup: String? = {
+		if usesLocalKeychain { return nil }
 		guard let appGroup = Bundle.main.object(forInfoDictionaryKey: "AppGroup") as? String else {
 			return nil
 		}
@@ -26,6 +27,42 @@ public struct CredentialsManager {
 		let appGroupSuffix = appGroup.suffix(appGroup.count - 6)
 		return "\(appIdentifierPrefix)\(appGroupSuffix)"
 	}()
+
+	/// Ad-hoc local builds cannot share the upstream app's credential identity.
+	/// Keep their records in a bundle-specific generic-password namespace.
+	private static var usesLocalKeychain: Bool {
+		#if os(macOS)
+		return Bundle.main.object(forInfoDictionaryKey: "NNWCustomBuild") as? Bool == true
+		#else
+		return false
+		#endif
+	}
+
+	private static func localQuery(type: CredentialsType, server: String, username: String) -> [String: Any] {
+		let identity = Data((server + "\u{0}" + username).utf8).base64EncodedString()
+		let bundleID = Bundle.main.bundleIdentifier ?? "local.NetNewsWire"
+		return [kSecClass as String: kSecClassGenericPassword,
+			kSecAttrService as String: bundleID + ".accounts." + type.rawValue,
+			kSecAttrAccount as String: identity]
+	}
+
+	private static func storeLocalCredentials(_ credentials: Credentials, server: String) throws {
+		let query = localQuery(type: credentials.type, server: server, username: credentials.username)
+		let values = [kSecValueData as String: Data(credentials.secret.utf8)]
+		var status = SecItemUpdate(query as CFDictionary, values as CFDictionary)
+		if status == errSecItemNotFound {
+			var item = query
+			item[kSecValueData as String] = Data(credentials.secret.utf8)
+			item[kSecAttrAccessible as String] = kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
+			status = SecItemAdd(item as CFDictionary, nil)
+			if status == errSecDuplicateItem {
+				status = SecItemUpdate(query as CFDictionary, values as CFDictionary)
+			}
+		}
+		guard status == errSecSuccess else {
+			throw CredentialsError.keychainStoreFailure(status: status)
+		}
+	}
 
 	/// Delays used between retry attempts. Total wait across all
 	/// retries is 750ms, enough for most transient keychain errors.
@@ -44,6 +81,10 @@ public struct CredentialsManager {
 	}
 
 	public static func storeCredentials(_ credentials: Credentials, server: String) throws {
+		if usesLocalKeychain {
+			try storeLocalCredentials(credentials, server: server)
+			return
+		}
 
 		var query: [String: Any] = [kSecClass as String: kSecClassInternetPassword,
 									kSecAttrAccessible as String: kSecAttrAccessibleAfterFirstUnlock,
@@ -121,6 +162,13 @@ public struct CredentialsManager {
 			query[kSecAttrAccessGroup as String] = securityGroup
 		}
 
+		if usesLocalKeychain {
+			query = localQuery(type: type, server: server, username: username)
+			query[kSecMatchLimit as String] = kSecMatchLimitOne
+			query[kSecReturnAttributes as String] = true
+			query[kSecReturnData as String] = true
+		}
+
 		var item: CFTypeRef?
 		var status = SecItemCopyMatching(query as CFDictionary, &item)
 
@@ -170,6 +218,10 @@ public struct CredentialsManager {
 
 		if let securityGroup = keychainGroup {
 			query[kSecAttrAccessGroup as String] = securityGroup
+		}
+
+		if usesLocalKeychain {
+			query = localQuery(type: type, server: server, username: username)
 		}
 
 		var status = SecItemDelete(query as CFDictionary)

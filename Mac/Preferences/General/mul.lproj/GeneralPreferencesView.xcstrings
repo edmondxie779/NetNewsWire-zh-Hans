@@ -16,6 +16,12 @@
             "state" : "translated",
             "value" : "Extra extra grande"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "超大"
+          }
         }
       }
     },
@@ -33,6 +39,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cada 4 horas"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每 4 小时"
           }
         }
       }
@@ -52,6 +64,12 @@
             "state" : "translated",
             "value" : "Cada 8 horas"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每 8 小时"
+          }
         }
       }
     },
@@ -69,6 +87,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contenido del artículo:"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文章内容："
           }
         }
       }
@@ -88,6 +112,12 @@
             "state" : "translated",
             "value" : "Navegador:"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "浏览器："
+          }
         }
       }
     },
@@ -105,6 +135,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Grande"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大"
           }
         }
       }
@@ -124,6 +160,12 @@
             "state" : "translated",
             "value" : "Solo manualmente"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅手动"
+          }
         }
       }
     },
@@ -141,6 +183,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pulsa la tecla Mayúsculas para hacer lo contrario."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按住 Shift 键可执行相反操作。"
           }
         }
       }
@@ -160,6 +208,12 @@
             "state" : "translated",
             "value" : "Extensión de Safari:"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari 扩展："
+          }
         }
       }
     },
@@ -177,6 +231,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Actualizar fuentes:"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刷新订阅："
           }
         }
       }
@@ -196,6 +256,12 @@
             "state" : "translated",
             "value" : "Parte del contenido, como vídeos y publicaciones de redes sociales incrustadas, puede requerir JavaScript para funcionar correctamente."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "视频和嵌入的社交媒体帖子等内容，可能需要 JavaScript 才能正常显示。"
+          }
         }
       }
     },
@@ -213,6 +279,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Activar JavaScript"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用 JavaScript"
           }
         }
       }
@@ -232,6 +304,12 @@
             "state" : "translated",
             "value" : "Mediano"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "中"
+          }
         }
       }
     },
@@ -249,6 +327,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tema del artículo:"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文章主题："
           }
         }
       }
@@ -268,6 +352,12 @@
             "state" : "translated",
             "value" : "Cada 2 horas"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每 2 小时"
+          }
         }
       }
     },
@@ -278,6 +368,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : "Safari"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "Safari"
           }
         }
@@ -291,6 +387,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Default"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "默认"
           }
         }
       }
@@ -310,6 +412,12 @@
             "state" : "translated",
             "value" : "Cada hora"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每小时"
+          }
         }
       }
     },
@@ -327,6 +435,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Extra grande"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "特大"
           }
         }
       }
@@ -346,6 +460,12 @@
             "state" : "translated",
             "value" : "Pequeño"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小"
+          }
         }
       }
     },
@@ -363,6 +483,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cada 30 minutos"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "每 30 分钟"
           }
         }
       }
@@ -382,6 +508,12 @@
             "state" : "translated",
             "value" : "Abrir fuentes en el lector predeterminado"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用默认阅读器打开订阅"
+          }
         }
       }
     },
@@ -399,6 +531,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abrir páginas web en segundo plano"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在浏览器中后台打开网页"
           }
         }
       }
@@ -418,6 +556,12 @@
             "state" : "translated",
             "value" : "Mostrar"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示"
+          }
         }
       }
     },
@@ -435,6 +579,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mostrar punto"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示圆点"
           }
         }
       }
@@ -454,6 +604,12 @@
             "state" : "translated",
             "value" : "Ocultar"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在浏览器后台打开网页"
+          }
         }
       }
     },
@@ -471,6 +627,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abrir fuentes en NetNewsWire"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用 NetNewsWire 打开订阅"
           }
         }
       }
@@ -490,6 +652,12 @@
             "state" : "translated",
             "value" : "Contadores de no leídos:"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未读数："
+          }
         }
       }
     },
@@ -508,6 +676,12 @@
             "state" : "translated",
             "value" : "Tamaño del texto:"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "文章字号："
+          }
         }
       }
     },
@@ -525,6 +699,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abrir carpeta de temas"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开主题文件夹"
           }
         }
       }

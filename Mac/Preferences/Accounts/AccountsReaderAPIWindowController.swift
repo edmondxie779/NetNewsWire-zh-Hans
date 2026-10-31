@@ -64,8 +64,8 @@ final class AccountsReaderAPIWindowController: NSWindowController {
 			}
 		}
 
-		if let account = account, let credentials = try? account.retrieveCredentials(type: .readerBasic) {
-			usernameTextField.stringValue = credentials.username
+		if let account {
+			usernameTextField.stringValue = account.credentialUsername ?? ""
 			apiURLTextField.stringValue = account.endpointURL?.absoluteString ?? ""
 			actionButton.title = NSLocalizedString("Update", comment: "Update")
 		} else {
@@ -167,7 +167,7 @@ final class AccountsReaderAPIWindowController: NSWindowController {
 
 					account?.triggerRefreshAll()
 				} catch {
-					errorMessageLabel.stringValue = NSLocalizedString("Keychain error while storing credentials.", comment: "Credentials Error")
+					errorMessageLabel.stringValue = NSLocalizedString("Keychain error while storing credentials.", comment: "Credentials Error") + " " + error.localizedDescription
 				}
 
 			} catch {

@@ -183,8 +183,12 @@ let appName = "NetNewsWire"
 			UserDefaults.standard.set(releaseBuildsURL, forKey: "SUFeedURL")
 		}
 
-		// Local custom builds must not be replaced by an upstream release.
-		if Bundle.main.object(forInfoDictionaryKey: "NNWCustomBuild") as? Bool == true {
+		// Custom builds must not be replaced by an upstream release. Released zh-Hans builds
+		// set NNWCustomUpdates along with their own feed and update key (see release-zh-hans.yml);
+		// local builds don’t update.
+		let isCustomBuild = Bundle.main.object(forInfoDictionaryKey: "NNWCustomBuild") as? Bool == true
+		let hasCustomUpdates = Bundle.main.object(forInfoDictionaryKey: "NNWCustomUpdates") as? Bool == true
+		if isCustomBuild && !hasCustomUpdates {
 			checkForUpdatesMenuItem.isHidden = true
 		} else {
 			// Initialize Sparkle...

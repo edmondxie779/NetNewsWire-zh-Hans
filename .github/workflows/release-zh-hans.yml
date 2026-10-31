@@ -1,0 +1,79 @@
+name: Release zh-Hans
+
+# Builds NetNewsWire 汉化版, publishes it as a GitHub release and updates the Sparkle feed.
+# Run from the Actions tab or: gh workflow run release-zh-hans.yml
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: release-zh-hans
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and publish
+    runs-on: macos-26
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          submodules: recursive
+
+      - name: Select Xcode 26.6
+        run: sudo xcode-select -s /Applications/Xcode_26.6.app/Contents/Developer
+
+      - name: Import signing certificate
+        env:
+          SIGNING_P12_BASE64: ${{ secrets.SIGNING_P12_BASE64 }}
+          SIGNING_P12_PASSWORD: ${{ secrets.SIGNING_P12_PASSWORD }}
+        run: |
+          set -euo pipefail
+          keychain="$RUNNER_TEMP/signing.keychain-db"
+          keychain_password="$(openssl rand -base64 24)"
+          echo "$SIGNING_P12_BASE64" | base64 --decode > "$RUNNER_TEMP/signing.p12"
+          security create-keychain -p "$keychain_password" "$keychain"
+          security set-keychain-settings -lut 3600 "$keychain"
+          security unlock-keychain -p "$keychain_password" "$keychain"
+          security import "$RUNNER_TEMP/signing.p12" -k "$keychain" -P "$SIGNING_P12_PASSWORD" -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$keychain_password" "$keychain" > /dev/null
+          rm "$RUNNER_TEMP/signing.p12"
+          echo "SIGN_KEYCHAIN=$keychain" >> "$GITHUB_ENV"
+
+      - name: Build and package
+        id: package
+        env:
+          RELEASE_NUMBER: ${{ github.run_number }}
+          SPARKLE_ED_PRIVATE_KEY: ${{ secrets.SPARKLE_ED_PRIVATE_KEY }}
+          OUTPUT_DIR: ${{ runner.temp }}/release
+        run: |
+          set -euo pipefail
+          bash buildscripts/package-zh-hans-release.sh | tee "$RUNNER_TEMP/package.log"
+          grep -E '^(tag|version|zip|appcast)=' "$RUNNER_TEMP/package.log" >> "$GITHUB_OUTPUT"
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag="${{ steps.package.outputs.tag }}"
+          cat > "$RUNNER_TEMP/notes.md" <<EOF
+          NetNewsWire ${{ steps.package.outputs.version }} 简体中文版，源码提交 ${GITHUB_SHA:0:7}。
+
+          **首次安装**：下载下方 zip，解压后把「NetNewsWire 汉化版」拖进「应用程序」。第一次打开会被系统拦下，到「系统设置 → 隐私与安全性」点「仍要打开」。
+
+          **已安装**：在菜单「NetNewsWire → 检查更新…」中更新即可。
+          EOF
+          gh release create "$tag" \
+            "${{ steps.package.outputs.zip }}" \
+            "${{ steps.package.outputs.appcast }}" \
+            --target "$GITHUB_SHA" \
+            --title "NetNewsWire 汉化版 ${{ steps.package.outputs.version }}" \
+            --notes-file "$RUNNER_TEMP/notes.md" \
+            --latest
+
+      - name: Remove signing keychain
+        if: always()
+        run: security delete-keychain "$RUNNER_TEMP/signing.keychain-db" 2>/dev/null || true

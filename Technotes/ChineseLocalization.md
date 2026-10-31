@@ -56,3 +56,13 @@ git merge upstream/main
 ```sh
 python3 buildscripts/find-missing-zh-hans.py
 ```
+
+## 发布与 App 内更新
+
+`.github/workflows/release-zh-hans.yml` 在 GitHub 的 macOS 机器上调用 `buildscripts/package-zh-hans-release.sh`，产物为签名后的 zip 和 Sparkle 的 `appcast.xml`，一并发布到 Releases。App 的更新地址是 `releases/latest/download/appcast.xml`，因此每次发布都要标记为 latest。
+
+- **版本号**：`CFBundleVersion` 为「上游构建号.发布序号」，如 `7226.3`；发布序号取工作流的运行次数，只增不减。显示版本沿用上游的 `MARKETING_VERSION`。
+- **更新开关**：打包时写入 `NNWCustomBuild`、`NNWCustomUpdates`、`SUPublicEDKey` 和本仓库的 `SUFeedURL`。只有 `NNWCustomUpdates` 为真时汉化版才启用 Sparkle，本地构建仍不更新。
+- **代码签名**：自签名证书「NetNewsWire zh-Hans Signing」，有效期至 2046 年。证书固定，更新后钥匙串里的「始终允许」不失效。备份在登录钥匙串中。
+- **更新签名**：Sparkle EdDSA 密钥，公钥写在打包脚本里，私钥存于仓库 Secrets，备份在登录钥匙串（账户 `netnewswire-zh-hans`）。私钥丢失后已安装的 App 无法再接收更新，只能手动重装。
+- **编译配置**：沿用 Debug 配置的本地标识和免 App Group 授权设置，同时开启编译优化。

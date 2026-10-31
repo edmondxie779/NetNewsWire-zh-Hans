@@ -6,25 +6,25 @@
 
 - **简体中文界面**：主菜单、侧栏、工具栏、设置、添加订阅、账户登录、OPML 导入导出、日志和统计窗口、快捷键说明等。跟随 macOS 的应用语言设置。
 - **三套阅读主题**：Claude（暖象牙白 / 暖炭灰，衬线正文）、宣纸（书页风格，宋体、段首缩进）、夜读（始终深色、低对比）。在「文章主题」菜单中选择。
-- **自建版适配**：独立的钥匙串命名空间（避免与官方版条目冲突）；关闭上游自动更新，避免被官方版本覆盖。
+- **自建版适配**：独立的钥匙串命名空间（避免与官方版条目冲突）；只从本仓库接收更新，不会被官方版本覆盖。
 
-## 构建与安装
+## 下载安装
 
-需要完整的 Xcode。
+1. 到 [Releases](https://github.com/edmondxie779/NetNewsWire-zh-Hans/releases/latest) 下载 `NetNewsWire-zh-Hans-….zip`，解压后把「NetNewsWire 汉化版」拖进「应用程序」。
+2. 第一次打开会提示无法验证开发者。到「系统设置 → 隐私与安全性」，在页面下方点「仍要打开」。只需这一次。
+3. 以后在菜单「NetNewsWire → 检查更新…」中更新；默认也会自动检查。
 
-**1. 创建签名证书（只需一次）**
+仅支持 Apple 芯片的 Mac，需要 macOS 15 或更新版本。本版本使用自签名证书，未经 Apple 公证。
 
-打开「钥匙串访问」，选择菜单「钥匙串访问 → 证书助理 → 创建证书…」：名称填 `NetNewsWire Local Signing`，身份类型选「自签名根证书」，证书类型选「代码签名」。
+## 发布新版本
 
-有了固定签名，钥匙串里点过的「始终允许」在重新构建后依然有效。没有这个证书时，脚本会退回临时签名，每次重新构建后 macOS 都会再次询问钥匙串权限。
-
-**2. 构建并安装**
+在 GitHub 的 Actions 页面运行「Release zh-Hans」，或执行：
 
 ```sh
-bash buildscripts/build-chinese-local.sh
+gh workflow run release-zh-hans.yml -R edmondxie779/NetNewsWire-zh-Hans
 ```
 
-脚本会编译、签名，并直接安装到 `/Applications/NetNewsWire 汉化版.app`。构建缓存在仓库上一级的 `build/` 里；如果移动过项目目录后构建失败，删掉 `build/` 重来即可。
+工作流会编译、签名、打包，发布到 Releases，并更新 App 内检查更新所用的 `appcast.xml`。需要仓库中已配置 `SIGNING_P12_BASE64`、`SIGNING_P12_PASSWORD`、`SPARKLE_ED_PRIVATE_KEY` 三项 Secrets。
 
 ## 同步上游更新
 
@@ -32,16 +32,20 @@ bash buildscripts/build-chinese-local.sh
 git switch zh-hans
 git fetch upstream
 git merge upstream/main
-bash buildscripts/build-chinese-local.sh
+python3 buildscripts/find-missing-zh-hans.py
+git push origin zh-hans
 ```
 
-合并时如有冲突，多半出现在 `*.xcstrings` 翻译文件或 `project.pbxproj`：保留上游的新内容，再补回 `zh-Hans` 译文。上游新增的界面文字在补译前会显示英文。详见 [汉化与构建说明](Technotes/ChineseLocalization.md)。
+合并时如有冲突，多半出现在 `*.xcstrings` 翻译文件或 `project.pbxproj`：保留上游的新内容，再补回 `zh-Hans` 译文。上游新增的界面文字在补译前会显示英文。推送后按上一节发布新版本。详见 [汉化与构建说明](Technotes/ChineseLocalization.md)。
+
+## 本地构建
+
+需要完整的 Xcode。`bash buildscripts/build-chinese-local.sh` 会编译、签名并安装到 `/Applications/NetNewsWire 汉化版.app`。本地构建不会自动更新。签名证书说明见脚本开头的注释。
 
 ## 数据与限制
 
 - 订阅数据位于 `~/Library/Application Support/NetNewsWire/`，和官方版是同一个目录，请不要同时运行官方版和本版本。
 - 阅读器视图（全文提取）等依赖上游私有服务密钥的功能不可用。
-- 本地签名、未公证，只适合在本机使用。
 
 Git 仓库保留上游完整历史和 MIT 许可证。`zh-hans` 是汉化分支，`main` 与上游保持一致。
 

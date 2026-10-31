@@ -64,6 +64,12 @@ KEYCHAIN_ARGS=()
 if [ -n "${SIGN_KEYCHAIN:-}" ]; then
   KEYCHAIN_ARGS=(--keychain "$SIGN_KEYCHAIN")
 fi
+# A self-signed certificate isn't trusted, so codesign can't find it by name. Use its SHA-1.
+if ! [[ "$SIGN_IDENTITY" =~ ^[0-9A-Fa-f]{40}$ ]]; then
+  IDENTITY_HASH="$(security find-identity -p codesigning ${SIGN_KEYCHAIN:+"$SIGN_KEYCHAIN"} | awk -v name="\"$SIGN_IDENTITY\"" 'index($0, name) { print $2; exit }')"
+  : "${IDENTITY_HASH:?Signing identity “$SIGN_IDENTITY” not found}"
+  SIGN_IDENTITY="$IDENTITY_HASH"
+fi
 codesign --force --deep --preserve-metadata=entitlements "${KEYCHAIN_ARGS[@]}" --sign "$SIGN_IDENTITY" "$STAGED"
 codesign --verify --deep --strict "$STAGED"
 

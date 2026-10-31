@@ -67,7 +67,7 @@ fi
 # A self-signed certificate isn't trusted, so codesign can't find it by name. Use its SHA-1.
 if ! [[ "$SIGN_IDENTITY" =~ ^[0-9A-Fa-f]{40}$ ]]; then
   IDENTITY_HASH="$(security find-identity -p codesigning ${SIGN_KEYCHAIN:+"$SIGN_KEYCHAIN"} | awk -v name="\"$SIGN_IDENTITY\"" 'index($0, name) { print $2; exit }')"
-  : "${IDENTITY_HASH:?Signing identity “$SIGN_IDENTITY” not found}"
+  : "${IDENTITY_HASH:?Signing identity “${SIGN_IDENTITY}” not found}"
   SIGN_IDENTITY="$IDENTITY_HASH"
 fi
 codesign --force --deep --preserve-metadata=entitlements "${KEYCHAIN_ARGS[@]}" --sign "$SIGN_IDENTITY" "$STAGED"
@@ -99,7 +99,7 @@ cat > "$OUTPUT_DIR/appcast.xml" <<EOF
       <sparkle:shortVersionString>$MARKETING_VERSION</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>$MINIMUM_SYSTEM</sparkle:minimumSystemVersion>
       <sparkle:fullReleaseNotesLink>$REPO_URL/releases/tag/$TAG</sparkle:fullReleaseNotesLink>
-      <description><![CDATA[<p>同步上游 NetNewsWire $MARKETING_VERSION（构建 $UPSTREAM_BUILD）。完整说明见 <a href="$REPO_URL/releases/tag/$TAG">发布页面</a>。</p>]]></description>
+      <description><![CDATA[<p>同步上游 NetNewsWire ${MARKETING_VERSION}（构建 ${UPSTREAM_BUILD}）。完整说明见 <a href="$REPO_URL/releases/tag/$TAG">发布页面</a>。</p>]]></description>
       <enclosure url="$REPO_URL/releases/download/$TAG/$ZIP_NAME" type="application/octet-stream" $SIGNATURE_ATTRIBUTES />
     </item>
   </channel>

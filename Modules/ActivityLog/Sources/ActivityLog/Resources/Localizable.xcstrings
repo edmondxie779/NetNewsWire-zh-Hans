@@ -1,602 +1,624 @@
 {
-  "sourceLanguage" : "en",
+  "sourceLanguage" : "en", 
   "strings" : {
     "Adding feed" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Añadiendo fuente"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "添加订阅"
           }
         }
       }
-    },
+    }, 
     "Avatars" : {
-      "comment" : "Activity owner name",
+      "comment" : "Activity owner name", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Avatares"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "头像"
           }
         }
       }
-    },
+    }, 
     "Cleaning up iCloud records" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Limpiando registros de iCloud"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "清理 iCloud 记录"
           }
         }
       }
-    },
+    }, 
     "Creating folder" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Creando carpeta"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "创建文件夹"
           }
         }
       }
-    },
+    }, 
     "Downloading avatar %@" : {
-      "comment" : "Activity kind — downloading an author avatar — %@ is the URL",
+      "comment" : "Activity kind — downloading an author avatar — %@ is the URL", 
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "下载头像 %@"
           }
         }
       }
-    },
+    }, 
     "Downloading favicon %@" : {
-      "comment" : "Activity kind — downloading a favicon — %@ is the URL",
+      "comment" : "Activity kind — downloading a favicon — %@ is the URL", 
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "下载网站图标 %@"
           }
         }
       }
-    },
+    }, 
     "Downloading image %@" : {
-      "comment" : "Activity kind — downloading a feed image — %@ is the URL",
+      "comment" : "Activity kind — downloading a feed image — %@ is the URL", 
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "下载图片 %@"
           }
         }
       }
-    },
+    }, 
     "Downloading metadata %@" : {
-      "comment" : "Activity kind — downloading HTML metadata — %@ is the URL",
+      "comment" : "Activity kind — downloading HTML metadata — %@ is the URL", 
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "下载元数据 %@"
           }
         }
       }
-    },
+    }, 
+    "Downloading thumbnail %@" : {
+      "comment" : "Activity kind — downloading a timeline thumbnail — %@ is the URL", 
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "正在下载缩略图 %@"
+          }
+        }
+      }
+    }, 
     "Exporting OPML" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Exportando OPML"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "导出 OPML"
           }
         }
       }
-    },
+    }, 
     "Favicons" : {
-      "comment" : "Activity owner name",
+      "comment" : "Activity owner name", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Favicons"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "网站图标"
           }
         }
       }
-    },
+    }, 
     "Feed Finder" : {
-      "comment" : "Activity owner name",
+      "comment" : "Activity owner name", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Buscador de fuentes"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "订阅源查找"
           }
         }
       }
-    },
+    }, 
     "Feed Images" : {
-      "comment" : "Activity owner name",
+      "comment" : "Activity owner name", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Imágenes de fuentes"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "订阅图片"
           }
         }
       }
-    },
+    }, 
     "Feed redirect" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "订阅重定向"
           }
         }
       }
-    },
+    }, 
     "Fetching %@" : {
-      "comment" : "Activity kind — fetching a candidate URL during feed finding",
+      "comment" : "Activity kind — fetching a candidate URL during feed finding", 
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "获取 %@"
           }
         }
       }
-    },
+    }, 
     "Fetching article IDs" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "获取文章 ID"
           }
         }
       }
-    },
+    }, 
     "Fetching iCloud stats" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Obteniendo estadísticas de iCloud"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "获取 iCloud 统计"
           }
         }
       }
-    },
+    }, 
     "Finding feed %@" : {
-      "comment" : "Activity kind — finding a feed at %@ URL",
+      "comment" : "Activity kind — finding a feed at %@ URL", 
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "查找订阅源 %@"
           }
         }
       }
-    },
+    }, 
     "HTML Metadata" : {
-      "comment" : "Activity owner name",
+      "comment" : "Activity owner name", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Metadatos HTML"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "HTML 元数据"
           }
         }
       }
-    },
+    }, 
     "Importing OPML" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Importando OPML"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "导入 OPML"
           }
         }
       }
-    },
+    }, 
     "Moving feed" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Moviendo fuente"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "移动订阅"
           }
         }
       }
-    },
+    }, 
     "Receiving sync notification" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "接收同步通知"
           }
         }
       }
-    },
+    }, 
     "Refresh all" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Actualizar todo"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "刷新全部"
           }
         }
       }
-    },
+    }, 
     "Refreshing articles" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "刷新文章"
           }
         }
       }
-    },
+    }, 
     "Refreshing feed list" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Actualizando lista de fuentes"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "刷新订阅列表"
           }
         }
       }
-    },
+    }, 
     "Refreshing feed: %@" : {
-      "comment" : "Activity kind — refreshing a feed — %@ is the feed name or URL",
+      "comment" : "Activity kind — refreshing a feed — %@ is the feed name or URL", 
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "刷新订阅：%@"
           }
         }
       }
-    },
+    }, 
     "Refreshing missing articles" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Actualizando artículos faltantes"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "刷新缺失的文章"
           }
         }
       }
-    },
+    }, 
     "Refreshing statuses" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Actualizando estados"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "刷新状态"
           }
         }
       }
-    },
+    }, 
     "Removing feed" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Eliminando fuente"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "移除订阅"
           }
         }
       }
-    },
+    }, 
     "Removing folder" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Eliminando carpeta"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "移除文件夹"
           }
         }
       }
-    },
+    }, 
     "Renaming feed" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Renombrando fuente"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "重命名订阅"
           }
         }
       }
-    },
+    }, 
     "Renaming folder" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Renombrando carpeta"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "重命名文件夹"
           }
         }
       }
-    },
+    }, 
     "Restoring feed" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "恢复订阅"
           }
         }
       }
-    },
+    }, 
     "Restoring folder" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Restaurando carpeta"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "恢复文件夹"
           }
         }
       }
-    },
+    }, 
     "Scanning iCloud article records" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "扫描 iCloud 文章记录"
           }
         }
       }
-    },
+    }, 
     "Scanning iCloud status records" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "扫描 iCloud 状态记录"
           }
         }
       }
-    },
+    }, 
     "Sending statuses" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Enviando estados"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "发送状态"
           }
         }
       }
-    },
+    }, 
     "Subscribing to feed" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Suscribiéndose a fuente"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "添加订阅源"
           }
         }
       }
-    },
+    }, 
     "Subscribing to zone changes" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Suscribiéndose a cambios de zona"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "订阅区域变更"
           }
         }
       }
-    },
+    }, 
+    "Thumbnails" : {
+      "comment" : "Activity owner name", 
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "缩略图"
+          }
+        }
+      }
+    }, 
     "Vacuuming database" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Compactando base de datos"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "压缩数据库"
           }
         }
       }
-    },
+    }, 
     "Validating credentials" : {
-      "comment" : "Activity kind",
+      "comment" : "Activity kind", 
       "localizations" : {
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "Validando credenciales"
           }
-        },
+        }, 
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "translated", 
             "value" : "验证登录凭据"
           }
         }
       }
     }
-  },
+  }, 
   "version" : "1.0"
 }

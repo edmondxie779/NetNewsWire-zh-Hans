@@ -1,0 +1,618 @@
+{
+  "sourceLanguage" : "en", 
+  "strings" : {
+    "tlB-fA-0c1.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Feed name and date above title\"; ObjectID = \"tlB-fA-0c1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Feed name and date above title"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "订阅名称和日期显示在标题上方"
+          }
+        }
+      }
+    }, 
+    "tlB-fR-0c1.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Fade read articles\"; ObjectID = \"tlB-fR-0c1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Fade read articles"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "淡化已读文章"
+          }
+        }
+      }
+    }, 
+    "tlB-sP-0c1.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Show separators\"; ObjectID = \"tlB-sP-0c1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Show separators"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "显示分隔线"
+          }
+        }
+      }
+    }, 
+    "tlL-fI-0c1.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Feed Icons:\"; ObjectID = \"tlL-fI-0c1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Feed Icons:"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "订阅图标："
+          }
+        }
+      }
+    }, 
+    "tlL-fS-0c1.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Feed Icon Size:\"; ObjectID = \"tlL-fS-0c1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Feed Icon Size:"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "订阅图标大小："
+          }
+        }
+      }
+    }, 
+    "tlL-ln-0c1.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"lines\"; ObjectID = \"tlL-ln-0c1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "lines"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "行"
+          }
+        }
+      }
+    }, 
+    "tlL-nL-0c1.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Rows:\"; ObjectID = \"tlL-nL-0c1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Rows:"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "行数："
+          }
+        }
+      }
+    }, 
+    "tlL-tH-0c1.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Thumbnails:\"; ObjectID = \"tlL-tH-0c1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Thumbnails:"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "缩略图："
+          }
+        }
+      }
+    }, 
+    "tlL-tX-0c1.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Text Size:\"; ObjectID = \"tlL-tX-0c1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Text Size:"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "字号："
+          }
+        }
+      }
+    }, 
+    "tlM-fD-0m0.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Automatic\"; ObjectID = \"tlM-fD-0m0\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Automatic"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "自动"
+          }
+        }
+      }
+    }, 
+    "tlM-fD-0m1.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Always\"; ObjectID = \"tlM-fD-0m1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Always"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "始终"
+          }
+        }
+      }
+    }, 
+    "tlM-fD-0m2.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Never\"; ObjectID = \"tlM-fD-0m2\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Never"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "从不"
+          }
+        }
+      }
+    }, 
+    "tlM-fS-0m1.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Small\"; ObjectID = \"tlM-fS-0m1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Small"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "小"
+          }
+        }
+      }
+    }, 
+    "tlM-fS-0m2.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Medium\"; ObjectID = \"tlM-fS-0m2\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Medium"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "中"
+          }
+        }
+      }
+    }, 
+    "tlM-fS-0m3.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Large\"; ObjectID = \"tlM-fS-0m3\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Large"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "大"
+          }
+        }
+      }
+    }, 
+    "tlM-nL-0m1.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"1\"; ObjectID = \"tlM-nL-0m1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "1"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "1"
+          }
+        }
+      }
+    }, 
+    "tlM-nL-0m2.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"2\"; ObjectID = \"tlM-nL-0m2\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "2"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "2"
+          }
+        }
+      }
+    }, 
+    "tlM-nL-0m3.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"3\"; ObjectID = \"tlM-nL-0m3\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "3"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "3"
+          }
+        }
+      }
+    }, 
+    "tlM-nL-0m4.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"4\"; ObjectID = \"tlM-nL-0m4\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "4"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "4"
+          }
+        }
+      }
+    }, 
+    "tlM-nL-0m5.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"5\"; ObjectID = \"tlM-nL-0m5\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "5"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "5"
+          }
+        }
+      }
+    }, 
+    "tlM-nL-0m6.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"6\"; ObjectID = \"tlM-nL-0m6\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "6"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "6"
+          }
+        }
+      }
+    }, 
+    "tlM-tS-0m0.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"None\"; ObjectID = \"tlM-tS-0m0\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "None"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "无"
+          }
+        }
+      }
+    }, 
+    "tlM-tS-0m1.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Small\"; ObjectID = \"tlM-tS-0m1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Small"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "小"
+          }
+        }
+      }
+    }, 
+    "tlM-tS-0m2.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Large\"; ObjectID = \"tlM-tS-0m2\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Large"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "大"
+          }
+        }
+      }
+    }, 
+    "tlM-tX-0m1.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Small\"; ObjectID = \"tlM-tX-0m1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Small"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "小"
+          }
+        }
+      }
+    }, 
+    "tlM-tX-0m2.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Medium\"; ObjectID = \"tlM-tX-0m2\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Medium"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "中"
+          }
+        }
+      }
+    }, 
+    "tlM-tX-0m3.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Large\"; ObjectID = \"tlM-tX-0m3\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Large"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "大"
+          }
+        }
+      }
+    }, 
+    "tlM-tX-0m4.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Extra Large\"; ObjectID = \"tlM-tX-0m4\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Extra Large"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "特大"
+          }
+        }
+      }
+    }, 
+    "tlM-tX-0m5.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Extra Extra Large\"; ObjectID = \"tlM-tX-0m5\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Extra Extra Large"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "超大"
+          }
+        }
+      }
+    }, 
+    "tlN-cL-0c1.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Feed icon size, thumbnails, rows, and separators apply only to the standard layout.\"; ObjectID = \"tlN-cL-0c1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Feed icon size, thumbnails, rows, and separators apply only to the standard layout."
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "订阅图标大小、缩略图、行数和分隔线仅适用于标准布局。"
+          }
+        }
+      }
+    }, 
+    "tlN-fD-0c1.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Automatic shows icons for folders, smart feeds, and authors with avatars.\"; ObjectID = \"tlN-fD-0c1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Automatic shows icons for folders, smart feeds, and authors with avatars."
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "“自动”会为文件夹、智能订阅以及带有头像的作者显示图标。"
+          }
+        }
+      }
+    }, 
+    "tlN-fT-0c1.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Shows the whole title, up to 12 lines.\"; ObjectID = \"tlN-fT-0c1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Shows the whole title, up to 12 lines."
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "显示完整标题，最多 12 行。"
+          }
+        }
+      }
+    }, 
+    "tlR-fT-0c1.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Full title, no preview\"; ObjectID = \"tlR-fT-0c1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Full title, no preview"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "完整标题，无预览"
+          }
+        }
+      }
+    }, 
+    "tlR-tP-0c1.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Title and preview, in\"; ObjectID = \"tlR-tP-0c1\";", 
+      "extractionState" : "extracted_with_value", 
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new", 
+            "value" : "Title and preview, in"
+          }
+        }, 
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "标题和预览，共"
+          }
+        }
+      }
+    }
+  }, 
+  "version" : "1.2"
+}

@@ -21,11 +21,12 @@ final class SettingsViewController: UITableViewController {
 		case notifications = 0
 		case accounts = 1
 		case feeds = 2
-		case timeline = 3
-		case articles = 4
-		case appearance = 5
-		case troubleshooting = 6
-		case help = 7
+		case sidebar = 3
+		case timeline = 4
+		case articles = 5
+		case appearance = 6
+		case troubleshooting = 7
+		case help = 8
 	}
 
 	private enum TroubleshootingRow: Int {
@@ -47,14 +48,16 @@ final class SettingsViewController: UITableViewController {
 		case groupByFeed = 1
 		case refreshClearsReadArticles = 2
 		case confirmMarkAllAsRead = 3
-		case timelineLayout = 4
+		case showPreviewInTimelineContextMenu = 4
+		case timelineLayout = 5
 	}
 
 	private enum ArticlesRow: Int, CaseIterable {
 		case theme = 0
 		case openLinksInNetNewsWire = 1
 		case enableJavaScript = 2
-		case enableFullScreenArticles = 3
+		case swipeToNextPreviousArticle = 3
+		case enableFullScreenArticles = 4
 	}
 
 	private enum HelpRow: Int {
@@ -72,11 +75,18 @@ final class SettingsViewController: UITableViewController {
 	@IBOutlet var refreshClearsReadArticlesSwitch: UISwitch!
 	@IBOutlet var articleThemeDetailLabel: UILabel!
 	@IBOutlet var confirmMarkAllAsReadSwitch: UISwitch!
+	@IBOutlet var showPreviewInTimelineContextMenuSwitch: UISwitch?
 	@IBOutlet var showFullscreenArticlesSwitch: UISwitch!
 	@IBOutlet var colorPaletteCell: UITableViewCell?
 	@IBOutlet var unreadCountDisplayCell: UITableViewCell?
 	@IBOutlet var openLinksInNetNewsWire: UISwitch!
 	@IBOutlet var enableJavaScriptSwitch: UISwitch!
+	@IBOutlet var swipeToNextPreviousArticleSwitch: UISwitch?
+	@IBOutlet var sidebarShowsIconsSwitch: UISwitch?
+	@IBOutlet var grayscaleIconsSwitch: UISwitch?
+	@IBOutlet var showTodayFeedSwitch: UISwitch?
+	@IBOutlet var showUnreadFeedSwitch: UISwitch?
+	@IBOutlet var showStarredFeedSwitch: UISwitch?
 
 	var scrollToArticlesSection = false
 	weak var presentingParentController: UIViewController?
@@ -94,6 +104,9 @@ final class SettingsViewController: UITableViewController {
 		NotificationCenter.default.addObserver(self, selector: #selector(displayNameDidChange), name: .DisplayNameDidChange, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(handleUserInterfaceColorPaletteDidUpdate(_:)), name: .userInterfaceColorPaletteDidUpdate, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(handleUnreadCountDisplaySettingDidChange(_:)), name: .unreadCountDisplaySettingDidChange, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(handleSidebarShowsIconsDidChange(_:)), name: .sidebarShowsIconsDidChange, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(handleGrayscaleIconsDidChange(_:)), name: .grayscaleIconsDidChange, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(handleSidebarSmartFeedsVisibilityDidChange(_:)), name: .sidebarSmartFeedsVisibilityDidChange, object: nil)
 
 		tableView.register(UINib(nibName: "SettingsComboTableViewCell", bundle: nil), forCellReuseIdentifier: "SettingsComboTableViewCell")
 		tableView.register(UINib(nibName: "SettingsTableViewCell", bundle: nil), forCellReuseIdentifier: "SettingsTableViewCell")
@@ -105,6 +118,9 @@ final class SettingsViewController: UITableViewController {
 		addPopUpButton(unreadCountDisplayPopUpButton, to: unreadCountDisplayCell, accessibilityLabel: NSLocalizedString("Unread Counts", comment: "Unread Counts"))
 		updateColorPalettePopUpButton()
 		updateUnreadCountDisplayPopUpButton()
+		updateSidebarShowsIconsSwitch()
+		updateSmartFeedsSwitches()
+		updateGrayscaleIconsSwitch()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -135,6 +151,9 @@ final class SettingsViewController: UITableViewController {
 		} else {
 			confirmMarkAllAsReadSwitch.isOn = false
 		}
+
+		showPreviewInTimelineContextMenuSwitch?.isOn = AppDefaults.showPreviewInTimelineContextMenu
+		swipeToNextPreviousArticleSwitch?.isOn = AppDefaults.articleSwipeNavigationEnabled
 
 		if AppDefaults.articleFullscreenAvailable {
 			showFullscreenArticlesSwitch.isOn = true
@@ -360,6 +379,26 @@ final class SettingsViewController: UITableViewController {
 		dismiss(animated: true)
 	}
 
+	@IBAction func switchSidebarShowsIcons(_ sender: UISwitch) {
+		AppDefaults.sidebarShowsIcons = sender.isOn
+	}
+
+	@IBAction func switchGrayscaleIcons(_ sender: UISwitch) {
+		AppDefaults.grayscaleIcons = sender.isOn
+	}
+
+	@IBAction func switchShowTodayFeed(_ sender: UISwitch) {
+		AppDefaults.showTodayFeed = sender.isOn
+	}
+
+	@IBAction func switchShowUnreadFeed(_ sender: UISwitch) {
+		AppDefaults.showUnreadFeed = sender.isOn
+	}
+
+	@IBAction func switchShowStarredFeed(_ sender: UISwitch) {
+		AppDefaults.showStarredFeed = sender.isOn
+	}
+
 	@IBAction func switchTimelineOrder(_ sender: Any) {
 		if timelineSortOrderSwitch.isOn {
 			AppDefaults.timelineSortDirection = .orderedAscending
@@ -392,6 +431,10 @@ final class SettingsViewController: UITableViewController {
 		}
 	}
 
+	@IBAction func switchShowPreviewInTimelineContextMenu(_ sender: UISwitch) {
+		AppDefaults.showPreviewInTimelineContextMenu = sender.isOn
+	}
+
 	@IBAction func switchFullscreenArticles(_ sender: Any) {
 		if showFullscreenArticlesSwitch.isOn {
 			AppDefaults.articleFullscreenAvailable = true
@@ -406,6 +449,10 @@ final class SettingsViewController: UITableViewController {
 		} else {
 			AppDefaults.useSystemBrowser = true
 		}
+	}
+
+	@IBAction func switchSwipeToNextPreviousArticle(_ sender: UISwitch) {
+		AppDefaults.articleSwipeNavigationEnabled = sender.isOn
 	}
 
 	@IBAction func switchJavaScriptPreference(_ sender: Any) {
@@ -436,6 +483,18 @@ final class SettingsViewController: UITableViewController {
 
 	@objc func handleUnreadCountDisplaySettingDidChange(_ notification: Notification) {
 		updateUnreadCountDisplayPopUpButton()
+	}
+
+	@objc func handleSidebarShowsIconsDidChange(_ notification: Notification) {
+		updateSidebarShowsIconsSwitch()
+	}
+
+	@objc func handleSidebarSmartFeedsVisibilityDidChange(_ notification: Notification) {
+		updateSmartFeedsSwitches()
+	}
+
+	@objc func handleGrayscaleIconsDidChange(_ notification: Notification) {
+		updateGrayscaleIconsSwitch()
 	}
 
 }
@@ -510,6 +569,20 @@ private extension SettingsViewController {
 		}
 		unreadCountDisplayPopUpButton.menu = UIMenu(children: actions)
 		unreadCountDisplayPopUpButton.accessibilityValue = String(describing: currentUnreadCountDisplay)
+	}
+
+	func updateSidebarShowsIconsSwitch() {
+		sidebarShowsIconsSwitch?.isOn = AppDefaults.sidebarShowsIcons
+	}
+
+	func updateGrayscaleIconsSwitch() {
+		grayscaleIconsSwitch?.isOn = AppDefaults.grayscaleIcons
+	}
+
+	func updateSmartFeedsSwitches() {
+		showTodayFeedSwitch?.isOn = AppDefaults.showTodayFeed
+		showUnreadFeedSwitch?.isOn = AppDefaults.showUnreadFeed
+		showStarredFeedSwitch?.isOn = AppDefaults.showStarredFeed
 	}
 
 	func addFeed() {

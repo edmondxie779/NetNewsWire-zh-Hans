@@ -1,0 +1,133 @@
+name: Sync Upstream
+
+# 每天自动检查上游 Ranchero-Software/NetNewsWire 更新（稳妥模式）：
+# - 无冲突且无新增未翻译词条：自动合并推送到 zh-hans；若版本号变化则自动触发 Release zh-Hans。
+# - 有新增未翻译词条：推送到 auto-sync/upstream 分支并创建/更新 PR 等待补译。
+# - 有代码/工程文件冲突：自动中止合并并创建 Issue 提醒手动处理。
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      force_release:
+        description: '即使版本号未变化也触发发布'
+        type: boolean
+        default: false
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: write
+
+jobs:
+  sync:
+    name: Check and sync upstream
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout zh-hans
+        uses: actions/checkout@v5
+        with:
+          ref: zh-hans
+          fetch-depth: 0
+
+      - name: Fetch upstream
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add upstream https://github.com/Ranchero-Software/NetNewsWire.git
+          git fetch upstream main
+          ahead=$(git rev-list --count HEAD..upstream/main)
+          echo "ahead=$ahead" >> "$GITHUB_OUTPUT"
+          echo "upstream_sha=$(git rev-parse --short upstream/main)" >> "$GITHUB_OUTPUT"
+        id: fetch
+
+      - name: Merge upstream and check translations
+        if: steps.fetch.outputs.ahead != '0'
+        id: merge
+        run: |
+          set -euo pipefail
+          set +e
+          git merge --no-commit --no-ff upstream/main
+          set -e
+
+          python3 buildscripts/merge-xcstrings.py
+
+          unresolved=$(git diff --name-only --diff-filter=U)
+          if [ -n "$unresolved" ]; then
+            echo "status=conflict" >> "$GITHUB_OUTPUT"
+            {
+              echo "自动合并 \`upstream/main\`（\`${{ steps.fetch.outputs.upstream_sha }}\`）时遇到无法自动解决的冲突，请手动处理："
+              echo ""
+              echo '```'
+              echo "$unresolved"
+              echo '```'
+            } > /tmp/sync-report.md
+            git merge --abort
+            exit 0
+          fi
+
+          git commit -m "Merge upstream/main (${{ steps.fetch.outputs.upstream_sha }})"
+
+          version_changed="false"
+          if git diff --name-only HEAD^1 HEAD | grep -qx 'xcconfig/common/NetNewsWire_version.xcconfig'; then
+            version_changed="true"
+          fi
+          echo "version_changed=$version_changed" >> "$GITHUB_OUTPUT"
+
+          python3 buildscripts/find-missing-zh-hans.py > /tmp/missing.txt
+          if grep -q 'untranslated' /tmp/missing.txt; then
+            echo "status=missing_translations" >> "$GITHUB_OUTPUT"
+            {
+              echo "已自动合并 \`upstream/main\`（\`${{ steps.fetch.outputs.upstream_sha }}\`），但检测到新增未翻译的简体中文词条，请补译后合并此 PR："
+              echo ""
+              echo '```'
+              cat /tmp/missing.txt
+              echo '```'
+            } > /tmp/sync-report.md
+          else
+            echo "status=clean" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Notify on conflict
+        if: steps.merge.outputs.status == 'conflict'
+        run: |
+          existing=$(gh issue list --state open --search "上游同步遇到代码冲突 in:title" --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file /tmp/sync-report.md
+          else
+            gh issue create \
+              --title "上游同步遇到代码冲突，需要手动处理" \
+              --body-file /tmp/sync-report.md
+          fi
+
+      - name: Open or update PR for missing translations
+        if: steps.merge.outputs.status == 'missing_translations'
+        run: |
+          git push --force origin HEAD:refs/heads/auto-sync/upstream
+          existing=$(gh pr list --head auto-sync/upstream --base zh-hans --state open --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh pr edit "$existing" --body-file /tmp/sync-report.md
+          else
+            gh pr create \
+              --base zh-hans \
+              --head auto-sync/upstream \
+              --title "同步上游更新（待补全简体中文翻译）" \
+              --body-file /tmp/sync-report.md
+          fi
+
+      - name: Push zh-hans and trigger release
+        if: steps.merge.outputs.status == 'clean'
+        run: |
+          git push origin zh-hans
+          if [ "${{ steps.merge.outputs.version_changed }}" = "true" ] || [ "${{ inputs.force_release }}" = "true" ]; then
+            gh workflow run release-zh-hans.yml --ref zh-hans
+          else
+            echo "已同步上游提交，但 NetNewsWire_version.xcconfig 未变化，跳过自动发版。"
+          fi

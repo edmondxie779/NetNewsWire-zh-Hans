@@ -291,6 +291,11 @@ final class WebViewController: UIViewController {
 
 	func showBars(animated: Bool = true) {
 		AppDefaults.articleFullscreenEnabled = false
+		restoreBars(animated: animated)
+	}
+
+	/// Shows the bars without leaving full screen mode, so the next article still opens full screen.
+	func restoreBars(animated: Bool) {
 		coordinator.showStatusBar()
 		topShowBarsViewConstraint?.constant = 0
 		bottomShowBarsViewConstraint?.constant = 0
@@ -811,7 +816,7 @@ private extension WebViewController {
 			var data: Data?
 			// Only a correctly signed routed URL uses the timeline’s copy, so page content can’t claim one.
 			if imageURL.scheme?.caseInsensitiveCompare(ArticleRenderer.articleImageScheme) == .orderedSame, let timelineImageURL = ArticleImageSchemeHandler.imageURL(imageURL) {
-				data = try? await ThumbnailDownloader.shared.fullSizeImageData(url: timelineImageURL, articleTitle: nil)
+				data = try? await ThumbnailDownloader.shared.fullSizeImageData(url: timelineImageURL, feedName: nil, articleTitle: nil)
 			} else {
 				data = try? await Downloader.shared.download(imageURL, userAgentStyle: .browser).data
 			}

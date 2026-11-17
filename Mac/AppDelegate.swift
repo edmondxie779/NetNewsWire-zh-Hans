@@ -731,6 +731,10 @@ let appName = "NetNewsWire"
 		HelpURL.discourse.open()
 	}
 
+	@IBAction func openThemesGallery(_ sender: Any?) {
+		HelpURL.themesGallery.open()
+	}
+
 	@IBAction func showHelp(_ sender: Any?) {
 		HelpURL.helpHome.open()
 	}

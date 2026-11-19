@@ -3245,6 +3245,17 @@
         }
       }
     }, 
+    "Notify About New Articles" : {
+      "comment" : "Notify About New Articles", 
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "有新文章时显示通知"
+          }
+        }
+      }
+    }, 
     "OK" : {
       "comment" : "OK button", 
       "localizations" : {
@@ -4117,17 +4128,6 @@
           "stringUnit" : {
             "state" : "translated", 
             "value" : "显示超过指定时间未更新的订阅…"
-          }
-        }
-      }
-    }, 
-    "Show notifications for new articles" : {
-      "comment" : "Show notifications for new articles", 
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated", 
-            "value" : "有新文章时显示通知"
           }
         }
       }

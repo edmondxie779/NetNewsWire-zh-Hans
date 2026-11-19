@@ -16,7 +16,7 @@ def git_show(stage: int, path: str) -> dict | None:
             ["git", "show", f":{stage}:{path}"], stderr=subprocess.DEVNULL
         )
         return json.loads(raw.decode("utf-8"))
-    except subprocess.CalledProcessError:
+    except (subprocess.CalledProcessError, json.JSONDecodeError, UnicodeDecodeError):
         return None
 
 
@@ -32,6 +32,7 @@ def merge_file(path: str) -> bool:
     ours = git_show(2, path)
     theirs = git_show(3, path)
     if ours is None or theirs is None:
+        print(f"Skipping {path}: cannot 3-way merge (leaving conflict unresolved)")
         return False
 
     base_s = (base or {}).get("strings", {})
@@ -79,8 +80,7 @@ def main():
         )
         paths = [line.strip() for line in out.splitlines() if line.strip()]
     for p in paths:
-        if not merge_file(p):
-            sys.exit(1)
+        merge_file(p)
 
 
 if __name__ == "__main__":

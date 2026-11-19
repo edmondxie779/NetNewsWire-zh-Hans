@@ -117,6 +117,9 @@ let appName = "NetNewsWire"
 			self.crashReporter = crashReporter
 		}
 
+		// Register before window restoration, which happens before applicationDidFinishLaunching.
+		AppDefaults.registerDefaults()
+
 		AccountManager.shared.start()
 
 		NotificationCenter.default.addObserver(self, selector: #selector(unreadCountDidChange(_:)), name: .UnreadCountDidChange, object: AccountManager.shared)
@@ -192,7 +195,6 @@ let appName = "NetNewsWire"
 			}
 		}
 
-		AppDefaults.registerDefaults()
 		let isFirstRun = AppDefaults.isFirstRun
 		if isFirstRun {
 			Self.logger.debug("Is first run.")

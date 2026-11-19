@@ -3246,7 +3246,15 @@
       }
     }, 
     "Notify About New Articles" : {
-      "comment" : "Notify About New Articles"
+      "comment" : "Notify About New Articles", 
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated", 
+            "value" : "有新文章时显示通知"
+          }
+        }
+      }
     }, 
     "OK" : {
       "comment" : "OK button", 

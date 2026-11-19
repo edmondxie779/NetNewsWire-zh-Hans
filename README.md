@@ -12,7 +12,7 @@
 
 仅支持 **Apple 芯片** Mac，需 **macOS 15** 或更高版本（使用自签名证书，未经 Apple 公证）。
 
-1. 前往 [Releases](https://github.com/edmondxie779/NetNewsWire-zh-Hans/releases/latest) 下载 `NetNewsWire-zh-Hans-….zip`，解压后将「NetNewsWire 汉化版」拖入「应用程序」。
+1. 前往 [Releases](https://github.com/edmondxie779/netnewswire-chinese/releases/latest) 下载 `NetNewsWire-zh-Hans-….zip`，解压后将「NetNewsWire 汉化版」拖入「应用程序」。
 2. 首次打开若提示无法验证开发者，前往「系统设置 → 隐私与安全性」点击「仍要打开」即可。
 3. 后续可通过菜单「NetNewsWire → 检查更新…」自动升级。
 
@@ -26,7 +26,7 @@
 详细说明见 [汉化与构建说明](Technotes/ChineseLocalization.md)。
 
 - **同步上游**：`git fetch upstream && git merge upstream/main && python3 buildscripts/find-missing-zh-hans.py`
-- **发布版本**：`gh workflow run release-zh-hans.yml -R edmondxie779/NetNewsWire-zh-Hans`
+- **发布版本**：`gh workflow run release-zh-hans.yml -R edmondxie779/netnewswire-chinese`
 - **本地构建**：`bash buildscripts/build-chinese-local.sh`（需完整 Xcode）
 
 本仓库保留上游完整历史与 MIT 许可证；`zh-hans` 为汉化分支，`main` 与上游一致。

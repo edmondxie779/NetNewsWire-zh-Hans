@@ -12,7 +12,7 @@
 set -euo pipefail
 
 : "${RELEASE_NUMBER:?Set RELEASE_NUMBER}"
-REPO_URL="https://github.com/edmondxie779/NetNewsWire-zh-Hans"
+REPO_URL="https://github.com/edmondxie779/netnewswire-chinese"
 FEED_URL="$REPO_URL/releases/latest/download/appcast.xml"
 SPARKLE_PUBLIC_KEY="WWJaNOCdzKLyYfWJzlLnv5+8ob0LIP4NCqYrvb5p21E="
 APP_NAME="NetNewsWire 汉化版"

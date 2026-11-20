@@ -1154,17 +1154,6 @@
         }
       }
     }, 
-    "Create" : {
-      "comment" : "Create", 
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated", 
-            "value" : "创建"
-          }
-        }
-      }
-    }, 
     "Create a local account on your Mac." : {
       "comment" : "Account Local", 
       "localizations" : {
